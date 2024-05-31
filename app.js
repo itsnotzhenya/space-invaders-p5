@@ -16,6 +16,7 @@ function setup() {
 
 function draw() {
   background(51);
+  imageMode(CENTER);
   ship.show();
   ship.move();
 

@@ -1,8 +1,8 @@
 function Projectile(x, y) {
-  this.x = x;
-  this.y = y;
   this.r = 4;
-  this.width = this.r * 2;
+  this.x = x;
+  this.width = 8;
+  this.y = y
   this.height = 52;
   this.toDelete = false;
 
@@ -25,7 +25,8 @@ function Projectile(x, y) {
   };
 
   this.hits = function (alien) {
-    let d = dist(this.x, this.y, alien.x, alien.y);
+    const projectileY = this.y - this.height / 2 + this.r;
+    let d = dist(this.x, projectileY, alien.x, alien.y);
     if (d < this.r + alien.r) {
       return true;
     } else {

@@ -5,7 +5,6 @@ function Ship() {
   this.width = 60;
 
   this.show = function () {
-    imageMode(CENTER);
     image(
       shipImage,
       this.x,
