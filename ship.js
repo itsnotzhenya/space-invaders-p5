@@ -1,21 +1,32 @@
-function Ship () {
+function Ship() {
   this.x = width / 2;
+  this.xdir = 0;
+  this.height = 94;
   this.width = 60;
-  this.height = 80;
-  this.xDir = 0;
 
   this.show = function () {
-    image(shipImg, this.x, height - this.height, this.width, this.height, 28, 17, 72, 97);
-  }
+    imageMode(CENTER);
+    image(
+      shipImage,
+      this.x,
+      height - this.height,
+      this.width,
+      this.height,
+      26,
+      6,
+      75,
+      117
+    );
+  };
 
   this.setDir = function (dir) {
-    this.xDir = dir;
-  }
-   
-  this.move = function () { 
-    const nextX = this.x + (10 * this.xDir);
+    this.xdir = dir;
+  };
+
+  this.move = function () {
+    const nextX = this.x + this.xdir * 5;
     if (nextX > 0 && nextX < width) {
       this.x = nextX;
     }
-  }
+  };
 }

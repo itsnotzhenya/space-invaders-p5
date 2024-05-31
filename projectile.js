@@ -1,27 +1,39 @@
 function Projectile(x, y) {
   this.x = x;
   this.y = y;
-  this.height = 11;
-  this.width = 8;
   this.r = 4;
-  this.isRemoved = false;
+  this.width = this.r * 2;
+  this.height = 52;
+  this.toDelete = false;
 
   this.show = function () {
-    image(projectileImg, this.x, this.y, this.width, this.height, 2, 1, 5, 7);
-  }
+    image(
+      projectileImage,
+      this.x,
+      this.y,
+      this.width,
+      this.height,
+      57,
+      52,
+      9,
+      58
+    );
+  };
+
+  this.disappear = function () {
+    this.toDelete = true;
+  };
 
   this.hits = function (alien) {
-    const d = dist(this.x, this.y, alien.x, alien.y);
-    const hit = d < this.r + alien.r;
-    return hit;
-  }
+    let d = dist(this.x, this.y, alien.x, alien.y);
+    if (d < this.r + alien.r) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   this.move = function () {
     this.y -= 5;
-  }
-
-  this.disappear = function () {
-    this.isRemoved = true;
-  }
-
+  };
 }
