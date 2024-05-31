@@ -62,6 +62,20 @@ function draw() {
       aliens.splice(i, 1);
     }
   }
+
+  // win
+  if (aliens.length === 0) {
+    console.log('you win');
+  }
+
+  // lose
+  const deadLine = ship.y - ship.height / 2;
+
+  for (let i = 0; i < aliens.length; i++) {
+    if (aliens[i].y + aliens[i].r >= deadLine) {
+      console.log('loose');
+    }
+  }
 }
 
 function keyReleased() {
